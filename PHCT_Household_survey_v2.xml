@@ -175,7 +175,9 @@
                                     <missed_appointment openmrs_concept="9320^PATIENT MISSED APPOINTMENT^99DCT" openmrs_datatype="CWE"></missed_appointment>
                                     <last_appointment_date openmrs_concept="9318^LAST APPOINTMENT DATE^99DCT" openmrs_datatype="DT"></last_appointment_date>
 
-                                    <reason_for_missed_visit openmrs_concept="1733^REASON FOR MISSED VISIT^99DCT" openmrs_datatype="CWE"></reason_for_missed_visit>
+                                    <reason_for_missed_visit openmrs_concept="1733^REASON FOR MISSED VISIT^99DCT" openmrs_datatype="CWE">
+
+                                    </reason_for_missed_visit>
 
 
                                     <number_of_hours_since_last_meal_prior_to_blood_glucose_test openmrs_concept="7005^NUMBER OF HOURS SINCE LAST MEAL PRIOR TO BLOOD GLUCOSE TEST^99DCT" openmrs_datatype="NM"> <value/> </number_of_hours_since_last_meal_prior_to_blood_glucose_test>
@@ -645,7 +647,7 @@
                <bind nodeset="/form/household/individuals/individual/obs/missed_appointment"
                      type="string"/>
                <bind nodeset="/form/household/individuals/individual/obs/last_appointment_date"
-                     type="string"/>
+                     type="date"/>
                <bind nodeset="/form/household/individuals/individual/obs/reason_for_missed_visit"
                      type="string"/>
             <!-- Blood Pressure and Random Blood Sugar -->
@@ -1950,47 +1952,7 @@
                         <input ref="/form/household/individuals/individual/patient/patient.hct_id">
                             <label>AMPATH ID</label>
                         </input>
-
-                        <input ref="/form/household/individuals/individual/obs/last_appointment_date">
-                            <label>Last Appointment Date</label>
-                        </input>
-
-                        <select1 ref="/form/household/individuals/individual/obs/missed_appointment">
-                            <label>Missed Appointment?</label>
-                            <item>
-                                <label>Yes</label>
-                                <value>1065^YES^99DCT</value>
-                            </item>
-                            <item>
-                                <label>No</label>
-                                <value>1066^NO^99DCT</value>
-                            </item>
-                        </select1>
-
-                        <select1 ref="/form/household/individuals/individual/obs/reason_for_missed_visit">
-                            <label>Reason for missing appointment</label>
-                            <item>
-                                <label>Access to care</label>
-                                <value>access_to_care</value>
-                            </item>
-                            <item>
-                                <label>Clinic Factor</label>
-                                <value>clinic_factor</value>
-                            </item>
-                            <item>
-                                <label>work and family</label>
-                                <value>work_and_family</value>
-                            </item>
-
-                            <item>
-                                <label>Alternative treatment and advice</label>
-                                <value>alternative_treatment_and_advice</value>
-                            </item>
-                        </select1>
-
-
-
-                        <group ref="/form/household/individuals/individual/obs/dbs_display_group">
+                     <group ref="/form/household/individuals/individual/obs/dbs_display_group">
                             <select1 ref="/form/household/individuals/individual/obs/tests_ordered/xforms_value">
                                 <label>DBS Taken?</label>
                                 <hint>Dried Blood Spot for HIV DNA PCR</hint>
@@ -2024,6 +1986,7 @@
                     </group>
                     <!-- End -For Children < 18 years -->
 
+                    
                     <!-- Adults Above 21 Years CDM -->
                     
                     <select1 ref="/form/household/individuals/individual/obs/pregnancy_below_18_determinant">
@@ -2488,6 +2451,75 @@
                             <label>AMPATH ID</label>
                         </input>
                     </group>
+                    <input ref="/form/household/individuals/individual/obs/last_appointment_date">
+                        <label>Last Appointment Date</label>
+                    </input>
+
+                    <select1 ref="/form/household/individuals/individual/obs/missed_appointment">
+                        <label>Missed Appointment?</label>
+                        <item>
+                            <label>Yes</label>
+                            <value>1065^YES^99DCT</value>
+                        </item>
+                        <item>
+                            <label>No</label>
+                            <value>1066^NO^99DCT</value>
+                        </item>
+                    </select1>
+
+                    <select1 ref="/form/household/individuals/individual/obs/reason_for_missed_visit">
+                        <label>Reason for missing appointment</label>
+                            <item>
+                             <label>Transport too difficult or expensive</label>
+                            <value>1578^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Transport too difficult or expensive or no money to access care</label>
+                                <value>6295^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Spent too much time in clinic</label>
+                                <value>9116^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Afraid of scolding</label>
+                                <value>9319^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Attending clinic risked disclosure to community</label>
+                                <value>1666^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Staff was not nice</label>
+                                <value>9130^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Work or need for money interfered with picking up medicine</label>
+                                <value>1577^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Care for family</label>
+                                <value>1576^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Family conflict</label>
+                                <value>9075^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Attending clinic risked disclosure to family that I had HIV</label>
+                                <value>1688^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Felt well so did not need care1647Went to someone who tried/is trying to cure me by prayer/religious rituals</label>
+                                <value>1587^NO^99DCT</value>
+                            </item>
+                            <item>
+                                <label>Family person or important person asked me to stop from going to clinic</label>
+                                <value>6296^NO^99DCT</value>
+                            </item>
+ 
+                    </select1>
+                       
 
                     <select ref="/form/household/individuals/individual/obs/reason_for_not_enrolling_in_hiv_program_if_positive">
                         <label>Reason for not being in the care program</label>
@@ -2518,6 +2550,7 @@
 
                     <!-- Current HIV Testing Section -->
                     <group ref="/form/household/individuals/individual/obs/hiv_testing_group">
+
                         <label>HIV Testing</label>
                         <select1 ref="/form/household/individuals/individual/obs/hiv_counselled_this_visit/value">
                             <label>Pretest Counseling</label>
@@ -3324,3 +3357,4 @@
         <!-- END OF CONDUCT SURVEY -->
     </xf:body>
 </xf:html>
+
